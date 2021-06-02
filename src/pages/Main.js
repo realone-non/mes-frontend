@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Test = () => {
+const Main = () => {
   return (
     <div>
-      test
+      메인페이지
     </div>
   );
 };
 
-export default Test;
+export default Main;
