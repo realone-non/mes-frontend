@@ -2,12 +2,13 @@ import { Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // component
-import RouteEndPoint from 'components/common/RouteEndPoint'
+import AuthRoute from 'components/common/AuthRoute'
 
 // router
 import Main from 'pages/Main';
 import Sub from 'pages/Sub';
 import LogIn from 'pages/LogIn';
+import Grid from 'pages/Grid';
 import Notfound from 'pages/NotFound';
 
 const App = () => {
@@ -15,26 +16,30 @@ const App = () => {
   return (
     <div className='App'>
       <Switch>
-        <RouteEndPoint 
+        <AuthRoute 
           path='/'
           component={Main}
           exact={true}
           endPoint={loggedIn}
           redirect='/login'
         />
-        <RouteEndPoint 
+        <AuthRoute 
           path='/sub'
           component={Sub}
           exact={false}
           endPoint={loggedIn}
           redirect='/login'
         />
-        <RouteEndPoint 
+        <AuthRoute 
           path='/login'
           component={LogIn}
           exact={false}
           endPoint={loggedOut}
           redirect='/'
+        />
+        <Route 
+          path='/grid'
+          component={Grid}
         />
         <Route component={Notfound} />
       </Switch>

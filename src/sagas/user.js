@@ -1,10 +1,9 @@
-import { all, fork, put, takeLatest, call } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 import axios from 'axios';
+import taker from './taker';
 
 import {
   LOG_IN_REQUEST,
-  LOG_IN_SUCCESS,
-  LOG_IN_FAILURE,
 } from 'reducers/user';
 
 const dummyData = process.env.NODE_ENV === "development" ? {
@@ -18,27 +17,9 @@ const dummyData = process.env.NODE_ENV === "development" ? {
   }
 } : null;
 
-function* watchLogIn() {
-  yield takeLatest(LOG_IN_REQUEST, logIn);
-}
-function* logIn(action) {
-  try {
-    const result = yield call(logInAPI, action.data);
-    yield put({
-      type: LOG_IN_SUCCESS,
-      data: result,
-    });
-  } catch (err) {
-    console.error(err);
-    yield put({
-      type: LOG_IN_FAILURE,
-      error: err.response.data,
-    });
-  }
-}
-function logInAPI(data) {
+function* logInAPI(data) {
   if (process.env.NODE_ENV === "development") {
-    
+    return dummyData.userInfo;
   } else {
     return axios.post('/user/login', data);
   }
@@ -46,6 +27,6 @@ function logInAPI(data) {
 
 export default function* userSaga() {
   yield all([
-    fork(watchLogIn),
+    taker(LOG_IN_REQUEST, 'LOG_IN', logInAPI),
   ]);
 }

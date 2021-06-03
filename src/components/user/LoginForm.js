@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useInput } from 'hooks';
 
 import { LOG_IN_REQUEST } from 'reducers/user';
 
 const LoginFormComponents = () => {
+  const { loggedError } = useSelector((state => state.user));
   const [ userId, setUserId ] = useInput('');
   const [ userPw, setUserPw ] = useInput('');
   const dispatch = useDispatch();
@@ -18,6 +19,11 @@ const LoginFormComponents = () => {
       }
     })
   });
+  useEffect(() => {
+    if (loggedError === true) {
+      alert('로그인 실패');
+    }
+  }, [loggedError]);
   return (
     <form onSubmit={onLogin}>
       <div>

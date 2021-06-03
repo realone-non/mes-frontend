@@ -1,8 +1,6 @@
 import { Route, Redirect } from 'react-router-dom';
 
-const RouteEndPoint = (props) => {
-  const { path, exact, endPoint, redirect, propObject } = props;
-  const Component = props.component;
+const AuthRoute = ({ path, component: Component,exact, endPoint, redirect, propObject }) => {
   return (
     <Route path={path} exact={exact} >
       {endPoint 
@@ -17,4 +15,4 @@ const RouteEndPoint = (props) => {
   )
 };
 
-export default RouteEndPoint;
+export default AuthRoute;
