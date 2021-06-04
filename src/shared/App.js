@@ -9,6 +9,7 @@ import Main from 'pages/Main';
 import Sub from 'pages/Sub';
 import LogIn from 'pages/LogIn';
 import Grid from 'pages/Grid';
+import AgGrid from 'pages/AgGrid';
 import Notfound from 'pages/NotFound';
 
 const App = () => {
@@ -40,6 +41,10 @@ const App = () => {
         <Route 
           path='/grid'
           component={Grid}
+        />
+        <Route 
+          path='/aggrid'
+          component={AgGrid}
         />
         <Route component={Notfound} />
       </Switch>

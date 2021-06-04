@@ -8,9 +8,9 @@ export const initialState = {
   loggedError : false
 };
 
-export const LOG_IN_REQUEST = "LOG_IN_REQUEST";
-export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
-export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
+export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
+export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
+export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
 
 const reducer = (state = initialState, action) => produce(state, (draft) => {
   switch (action.type) {

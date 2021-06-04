@@ -3,7 +3,7 @@ import { ValueType } from "realgrid";
 
 import GridComponent from 'components/grid/GridComponent';
 
-export const fields = [{
+const fields = [{
     fieldName: 'Name',
     dataType: ValueType.TEXT,
 },
@@ -22,9 +22,12 @@ export const fields = [{
 {
     fieldName: 'Email',
     dataType: ValueType.TEXT
+},
+{
+    fieldName: 'View',
 }];
 
-export const columns = [{
+const columns = [{
     name: "Name",
     fieldName: "Name",
     type: "data",
@@ -87,14 +90,34 @@ export const columns = [{
         text: "Email",
         showTooltip: false,
     },
-}]
-
-export const rows = [{
+}, {
+    name: "View",
+    fieldName: "View",
+    type: "data",
+    width: "100",
+    styles: {
+        textAlignment: "center"
+    },
+    renderer : {
+      type:'html',
+      callback: () => {
+				return Test	
+      }
+    }
+}];
+class Test extends React.Component {
+  render() {
+		return (
+			<button>버튼</button>
+		)
+	}
+}
+const rows = [{
     "Name": "Kessie",
     "FullName": "Vijendra N. Raj",
     "Email": "mus.Donec.dignissim@Praesent.edu",
     "Company": "Arcu Et Pede Incorporated",
-    "Age": "17"
+    "Age": "17",
 },
 {
     "Name": "Evelyn",
@@ -179,7 +202,7 @@ export const rows = [{
     "Email": "sit.amet@interdumSedauctor.co.uk",
     "Company": "Nisi Cum Sociis PC",
     "Age": 36
-}]
+}];
 const Grid = () => {
   return (
     <div>

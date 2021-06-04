@@ -16,6 +16,10 @@ import rootSaga from 'sagas';
 import Root from 'client/Root';
 import reportWebVitals from './reportWebVitals';
 
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware, logger];
 const enhancer = process.env.NODE_ENV === 'production'

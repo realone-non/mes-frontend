@@ -2,9 +2,7 @@ import { all } from 'redux-saga/effects';
 import axios from 'axios';
 import taker from './taker';
 
-import {
-  LOG_IN_REQUEST,
-} from 'reducers/user';
+import { LOG_IN_REQUEST } from 'reducers/user';
 
 const dummyData = process.env.NODE_ENV === "development" ? {
   userAuth : {

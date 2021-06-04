@@ -10,15 +10,17 @@ const GridComponent = (props) => {
   let gridView;
 
   useEffect(() => {
-    console.log(gridDom)
     gridView = new GridView(gridDom.current);
   }, [gridDom])
 
   useEffect(() => {
     gridView.setDataSource(dataProvider);
-    dataProvider.setFields(fields);
     gridView.setColumns(columns);
+    dataProvider.setFields(fields);
     dataProvider.setRows(rows);
+    gridView.onCellButtonClicked = (grid, index, col) => {
+      console.log(col)
+    }
   }, []);
   
   const exportExcel = () => {
@@ -28,7 +30,7 @@ const GridComponent = (props) => {
       fileName: "gridExportSample.xlsx", 
       progressMessage: "엑셀 Export중입니다.",
     })
-  }
+  };
   return (
     <div>
       <div id='realgrid' ref={gridDom} style={style}></div>
