@@ -3,7 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 
 import { Button } from 'react-bootstrap';
 
-const AgGridComponents = React.memo(( { columnDefs, defaultColDef, rowData, exportFiles, reflash } ) => {
+const AgGridComponents = React.memo(( { columnDefs, defaultColDef, rowData, exportFiles, reflash, frameworkComponents } ) => {
   const [ gridAPI, setGridAPI ] = useState(null);
   const onGridReady = (params) => {
     setGridAPI(params.api)
@@ -32,14 +32,16 @@ const AgGridComponents = React.memo(( { columnDefs, defaultColDef, rowData, expo
         defaultColDef={defaultColDef}
         rowData={rowData}
         onGridReady={onGridReady}
+        frameworkComponents={frameworkComponents}
       />
       <div>
         {
-          exportFiles.used === true && 
-            <FileButtns 
-              type={exportFiles.type}
-              func={onExportFiles}
-            />
+          exportFiles !== undefined &&
+            exportFiles.used === true && 
+              <FileButtns 
+                type={exportFiles.type}
+                func={onExportFiles}
+              />
         }
         <Button 
           onClick={() => reflash()}
