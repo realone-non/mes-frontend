@@ -115,7 +115,7 @@ const Links = (props) => {
     viewContents();
   });
   return (
-    <a onClick={clickHandler}>{value}</a>
+    <a className='boardViewLink' onClick={clickHandler}>{value}</a>
   )
 };
 export default BoardList;
