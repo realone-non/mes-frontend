@@ -20,6 +20,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'styles/grid.scss';
+
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware, logger];
 const enhancer = process.env.NODE_ENV === 'production'

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { AgGridReact } from 'ag-grid-react';
 
+import WorkList from 'containers/WorkList';
+import BoardList from 'containers/BoardList';
+
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 
 const textStyle = {
@@ -133,40 +136,10 @@ const AgGrid = () => {
       <Container>
         <Row>
           <Col sm={12} md={6}>
-            <div className="ag-theme-alpine" style={{height: 400, width: '100%'}}>
-              <AgGridReact
-                columnDefs={gridOption.columnDefs}
-                defaultColDef={gridOption.defaultColDef}
-                rowData={gridOption.rowData}
-                frameworkComponents={gridOption.frameworkComponents}
-                onGridReady={onGridReady}
-              />
-              <div>
-                <Button
-                  onClick={() => onExportCSV()}
-                >
-                  export CSV
-                </Button>
-              </div>
-            </div>
+            <WorkList />
           </Col>
           <Col sm={12} md={6}>
-            <div className="ag-theme-alpine" style={{height: 400, width: '100%'}}>
-              <AgGridReact
-                columnDefs={gridOption.columnDefs}
-                defaultColDef={gridOption.defaultColDef}
-                rowData={gridOption.rowData}
-                frameworkComponents={gridOption.frameworkComponents}
-                onGridReady={onGridReady}
-              />
-              <div>
-                <Button
-                  onClick={() => onExportCSV()}
-                >
-                  export CSV
-                </Button>
-              </div>
-            </div>
+            <BoardList />
           </Col>
         </Row>
       </Container>

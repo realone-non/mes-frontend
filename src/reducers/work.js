@@ -12,10 +12,13 @@ export const WORK_LIST_FAILURE = 'WORK_LIST_FAILURE';
 const reducer = (state = initialState, action) => produce(state, (draft) => {
   switch (action.type) {
     case WORK_LIST_REQUEST :
+      draft.workList = []
       break;
     case WORK_LIST_SUCCESS :
+      draft.workList = action.data;
       break;
     case WORK_LIST_FAILURE :
+      draft.workList = []
       break;
     default:
       break;

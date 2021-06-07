@@ -5,7 +5,6 @@ const taker = (actions, actionType, func, takeMethod = takeLatest, takeOption) =
     actions,
     function* (action) {
       try {
-        console.log(action);
         const result = yield func(action);
         yield put({
           type: `${actionType}_SUCCESS`,

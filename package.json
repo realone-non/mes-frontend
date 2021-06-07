@@ -13,6 +13,8 @@
     "dotenv": "^10.0.0",
     "immer": "^9.0.2",
     "jszip": "^3.6.0",
+    "moment": "^2.29.1",
+    "node-sass": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",

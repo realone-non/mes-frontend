@@ -2,11 +2,15 @@ import { all, call } from 'redux-saga/effects';
 import axios from 'axios';
 
 import user from './user';
+import work from './work';
+import board from './board';
 
 axios.defaults.baseURL = '/';
 
-export default function* rootSaga() { // 제너레이터 문법
+export default function* rootSaga() {
   yield all([
-    call(user)
+    call(user),
+    call(work),
+    call(board)
   ])
 };
